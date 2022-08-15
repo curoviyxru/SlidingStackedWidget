@@ -146,22 +146,22 @@ void SlidingStackedWidget::slideInWgt(QWidget * newwidget, enum t_direction dire
        animnow->setStartValue(QPoint(pnow.x(), pnow.y()));
        animnow->setEndValue(QPoint(offsetx+pnow.x(), offsety+pnow.y()));
 
-       QGraphicsOpacityEffect *animnow_op_eff = new QGraphicsOpacityEffect();
-       widget(now)->setGraphicsEffect(animnow_op_eff);
-       QPropertyAnimation *animnow_op = new QPropertyAnimation(animnow_op_eff, "opacity");
-       animnow_op->setDuration(m_speed * 0.5);
-       animnow_op->setStartValue(1);
-       animnow_op->setEndValue(0);
-       connect(animnow_op, SIGNAL(finished()), this, SLOT(tempAnimationFinished()));
+//       QGraphicsOpacityEffect *animnow_op_eff = new QGraphicsOpacityEffect();
+//       widget(now)->setGraphicsEffect(animnow_op_eff);
+//       QPropertyAnimation *animnow_op = new QPropertyAnimation(animnow_op_eff, "opacity");
+//       animnow_op->setDuration(m_speed * 0.5);
+//       animnow_op->setStartValue(1);
+//       animnow_op->setEndValue(0);
+//       connect(animnow_op, SIGNAL(finished()), this, SLOT(tempAnimationFinished()));
 
-       QGraphicsOpacityEffect *animnext_op_eff = new QGraphicsOpacityEffect();
-       animnext_op_eff->setOpacity(0);
-       widget(next)->setGraphicsEffect(animnext_op_eff);
-       QPropertyAnimation *animnext_op = new QPropertyAnimation(animnext_op_eff, "opacity");
-       animnext_op->setDuration(m_speed * 0.5);
-       animnext_op->setStartValue(0);
-       animnext_op->setEndValue(1);
-       connect(animnext_op, SIGNAL(finished()), this, SLOT(tempAnimationFinished()));
+//       QGraphicsOpacityEffect *animnext_op_eff = new QGraphicsOpacityEffect();
+//       animnext_op_eff->setOpacity(0);
+//       widget(next)->setGraphicsEffect(animnext_op_eff);
+//       QPropertyAnimation *animnext_op = new QPropertyAnimation(animnext_op_eff, "opacity");
+//       animnext_op->setDuration(m_speed * 0.5);
+//       animnext_op->setStartValue(0);
+//       animnext_op->setEndValue(1);
+//       connect(animnext_op, SIGNAL(finished()), this, SLOT(tempAnimationFinished()));
 
        QPropertyAnimation *animnext = new QPropertyAnimation(widget(next), "pos");
        animnext->setDuration(m_speed);
@@ -172,8 +172,8 @@ void SlidingStackedWidget::slideInWgt(QWidget * newwidget, enum t_direction dire
        animgroup = new QParallelAnimationGroup;
        animgroup->addAnimation(animnow);
        animgroup->addAnimation(animnext);
-       animgroup->addAnimation(animnow_op);
-       animgroup->addAnimation(animnext_op);
+//       animgroup->addAnimation(animnow_op);
+//       animgroup->addAnimation(animnext_op);
 
        connect(animgroup, SIGNAL(finished()),this,SLOT(animationDoneSlot()));
        m_next=next;
@@ -192,8 +192,8 @@ void SlidingStackedWidget::animationDoneSlot()
    emit animationFinished();
 }
 
-void SlidingStackedWidget::tempAnimationFinished()
-{
-    if(QObject::sender() != 0)
-       QObject::sender()->deleteLater();
-}
+//void SlidingStackedWidget::tempAnimationFinished()
+//{
+//    if(QObject::sender() != 0)
+//       QObject::sender()->deleteLater();
+//}

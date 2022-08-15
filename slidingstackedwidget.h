@@ -62,7 +62,7 @@ signals:
 
 protected slots:
        void animationDoneSlot(void);
-       void tempAnimationFinished(void);
+       //void tempAnimationFinished(void);
 
 protected:
        int m_speed;
