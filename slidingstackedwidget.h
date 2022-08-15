@@ -37,7 +37,7 @@ public:
                BOTTOM2TOP,
                AUTOMATIC
        };
-       SlidingStackedWidget(QWidget *parent);
+       explicit SlidingStackedWidget(QWidget *parent = 0);
 
 public slots:
        //! Set animation speed
@@ -65,7 +65,6 @@ protected slots:
        void tempAnimationFinished(void);
 
 protected:
-       QWidget *m_mainwindow;
        int m_speed;
        enum QEasingCurve::Type m_animationtype;
        bool m_vertical;

@@ -24,16 +24,8 @@
 #include <QGraphicsOpacityEffect>
 
 SlidingStackedWidget::SlidingStackedWidget(QWidget *parent)
-
    : QStackedWidget(parent)
 {
-
-   if (parent!=0) {
-           m_mainwindow=parent;
-       }
-       else {
-           m_mainwindow=this;
-       }
        m_vertical=false;
        m_speed=300;
        m_animationtype = QEasingCurve::OutQuart;
@@ -46,7 +38,7 @@ SlidingStackedWidget::SlidingStackedWidget(QWidget *parent)
 
 void SlidingStackedWidget::setVerticalMode(bool vertical) {
 
-       m_vertical=vertical;
+       m_vertical = vertical;
 }
 
 void SlidingStackedWidget::setSpeed(int speed) {
@@ -61,7 +53,7 @@ void SlidingStackedWidget::setAnimation(enum QEasingCurve::Type animationtype) {
 
 void SlidingStackedWidget::setWrap(bool wrap) {
 
-       m_wrap=wrap;
+       m_wrap = wrap;
 }
 
 bool SlidingStackedWidget::slideInNext() {
